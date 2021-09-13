@@ -55,14 +55,15 @@ class ListPets extends React.Component {
             let animals = this.state.results.animals;
             console.log(animals);
             let pets = animals.map((pet) => {
-
                return (
                         <ul id='pet'>
                             <li key={pet.id}>
                                 <PetCard
                                     id={pet.id}
                                     name={pet.name}
-                                    pics={pet.photos}
+                                    pics={pet.photos.map((element, index) => {
+                                        return <img src={element.medium} key={index}/>
+                                    })}
                                 />
                             </li>
                         </ul>
