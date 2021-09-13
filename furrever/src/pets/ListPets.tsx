@@ -1,5 +1,4 @@
 //@ts-nocheck
-
 import React, { Component } from 'react';
 import { createImportSpecifier } from 'typescript';
 import PetCard from './PetCard';
@@ -56,17 +55,26 @@ class ListPets extends React.Component {
             let animals = this.state.results.animals;
             console.log(animals);
             let pets = animals.map((pet) => {
-               return <ul id='pet'>
-                   <li key={pet.id}>
-                       <PetCard
-                         id={pet.id}
-                     />
-                   </li>
-               </ul>
-           })
-           return 
-             <div>{pets}</div>;     
+
+               return (
+                        <ul id='pet'>
+                            <li key={pet.id}>
+                                <PetCard
+                                    id={pet.id}
+                                    name={pet.name}
+                                    pics={pet.photos}
+                                />
+                            </li>
+                        </ul>
+               );
+            });
+           return (
+                <div>
+                    {pets}
+                </div>
+           );
         }
+        return <div>No results</div>;
     }
 }
 export default ListPets;
