@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
-
+import './Navbar.css'
 import React from 'react'
 
 const Header = () => {
     return (
-        <nav>
+        <nav className="nav">
             <ul className="nav-links">
                 <Link to ="/"><li>Home</li></Link>
                 <Link to ="/Search"><li>Search</li></Link>

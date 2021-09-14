@@ -1,0 +1,9 @@
+.nav {
+    max-height: 5vh;
+
+}
+
+.nav-links li {
+    display:inline;
+    padding: 10px;
+}
