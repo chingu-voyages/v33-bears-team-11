@@ -1,9 +1,17 @@
 //@ts-nocheck
 import React, {useState} from 'react'
+
+//Components
+import Pictures from '../../components/PetDetails/Pictures';
+import Contact from '../../components/PetDetails/Contact';
+import Info from '../../components/PetDetails/Info';
+import Description from '../../components/PetDetails/Description';
+
 import tempData from './tempData.json'
 import './PetDetails.css';
 
 function PetDetails() {
+    const [data] = useState(tempData)
     const [attributes, setAttributes] = useState([])
 
     const checkAttributes = () => {
@@ -15,26 +23,28 @@ function PetDetails() {
             }
         })
     }
-
+    const {name, age, gender, size, species, description } = data;
     return (
         <div className="container">
             {checkAttributes()}
+
             <div className="flexbox-item top-left">
-                <div className="name">{tempData.name}</div>
+                <Pictures name={name}/>
             </div>
             <div className="flexbox-item top-right">
-                <div className="age"><p>{tempData.age}</p></div>
-                <div className="gender"><p>{tempData.gender}</p></div>
-                <div className="size"><p>{tempData.size}</p></div>
-                <div className="species"><p>{tempData.species}</p></div>
-                <div className="species"><p>{attributes.join(", ")}</p></div>
-                
+                <Info 
+                    age={age}
+                    gender={gender}
+                    size={size}
+                    species={species}
+                    attributes={attributes}
+                />
             </div>
             <div className="flexbox-item bot-left">
-                contact info
+                <Contact/>
             </div>
             <div className="flexbox-item bot-right">
-                <div className="desc"><p>{tempData.description}</p></div>
+                <Description description={description}/>
             </div>
             {console.log(attributes)}
         </div>
