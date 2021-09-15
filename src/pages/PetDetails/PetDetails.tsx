@@ -23,13 +23,17 @@ function PetDetails() {
             }
         })
     }
-    const {name, age, gender, size, species, description } = data;
+    const {photos, primary_photo_cropped, name, age, gender, size, species, description } = data;
     return (
         <div className="container">
             {checkAttributes()}
 
             <div className="flexbox-item top-left">
-                <Pictures name={name}/>
+                <Pictures 
+                    name={name} 
+                    photos={photos} 
+                    primary={primary_photo_cropped}
+                />
             </div>
             <div className="flexbox-item top-right">
                 <Info 
