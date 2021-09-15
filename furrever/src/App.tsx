@@ -1,9 +1,6 @@
 //@ts-nocheck
 import React from 'react';
-<<<<<<< HEAD
-=======
 import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
->>>>>>> origin/develop
 import './App.css';
 import ListPets from './pets/ListPets';
 
@@ -18,11 +15,6 @@ import Favorites from './pages/Favorites/Favorites';
 
 function App() {
   return (
-<<<<<<< HEAD
-    <div className="App">
-      <ListPets/>
-    </div>
-=======
     <Router>
       <div className="App">
         <Navbar/>
@@ -35,7 +27,6 @@ function App() {
         </Switch>
       </div>
     </Router>
->>>>>>> origin/develop
   );
 }
 
