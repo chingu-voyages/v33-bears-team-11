@@ -1,11 +1,6 @@
-//@ts-nocheck
 import React from 'react';
-<<<<<<< HEAD
-=======
 import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
->>>>>>> origin/develop
 import './App.css';
-import ListPets from './pets/ListPets';
 
 import Navbar from './components/Navbar/Navbar'
 
@@ -15,14 +10,10 @@ import About from './pages/About/About'
 import Login from './pages/Login/Login';
 import Search from './pages/Search/Search';
 import Favorites from './pages/Favorites/Favorites';
+import PetDetails from './pages/PetDetails/PetDetails'
 
 function App() {
   return (
-<<<<<<< HEAD
-    <div className="App">
-      <ListPets/>
-    </div>
-=======
     <Router>
       <div className="App">
         <Navbar/>
@@ -32,10 +23,10 @@ function App() {
           <Route exact path="/favorites" component={Favorites}></Route>
           <Route exact path="/about" component={About}></Route>
           <Route exact path="/login" component={Login}></Route>
+          <Route exact path="/details" component={PetDetails}></Route>
         </Switch>
       </div>
     </Router>
->>>>>>> origin/develop
   );
 }
 
