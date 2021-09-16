@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import UseForm from "../UseForm/UseForm";
+import "./Register.css";
 
 const RegisterPage = () => {
     const {errors, values, handleChange, handleSubmit, setValues } = UseForm();
