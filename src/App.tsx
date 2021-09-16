@@ -11,6 +11,7 @@ import Login from './pages/Login/Login';
 import Search from './pages/Search/Search';
 import Favorites from './pages/Favorites/Favorites';
 import Register from './pages/Register/Register';
+import PetDetails from './pages/PetDetails/PetDetails'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/about" component={About}></Route>
           <Route exact path="/login" component={Login}></Route>
           <Route exact path="/register" component={Register}></Route>
+          <Route exact path="/details" component={PetDetails}></Route>
         </Switch>
       </div>
     </Router>

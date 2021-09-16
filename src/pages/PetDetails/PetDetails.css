@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-height: 95vh;
+}
+
+.container > div {
+    width: 50%;
+    height: 47.5vh;
+}
+
+.container > div > div {
+    display: flex;
+    justify-content: center;
+  }
+
+  .top-right {
+    background-color: red;
+  }
+
+  .top-left {
+      background-color: aqua;
+  }
+  
+  .bot-left {
+      background-color: chocolate;
+  }
+
+  .bot-right {
+      background-color: grey;
+  }
+
+  @media (max-width: 800px) {
+    .container {
+      flex-direction: column;
+    }
+
+    .container > div {
+        width: 100%;
+    }
+  }
