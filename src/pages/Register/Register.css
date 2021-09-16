@@ -1,0 +1,28 @@
+.center {
+	margin: auto;
+}
+
+.full-box {
+	padding: 5px;
+	width: 500px;
+	border-style: groove;
+	border-radius: 10px;
+	border-color: black;
+}
+
+.text-center-title {
+	padding-top: 3%;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.text-center-text {
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 5%;
+}
+
+.btn-center {
+	text-align: center;
+	margin-top: 10px;
+}
