@@ -11,6 +11,7 @@ const Header = () => {
                 <Link to ="/Favorites"><li>Favorites</li></Link>
                 <Link to ="about"><li>About</li></Link>
                 <Link to ="login"><li>Login</li></Link>
+                <Link to ="register"><li>Register</li></Link>
             </ul>
         </nav>
     )

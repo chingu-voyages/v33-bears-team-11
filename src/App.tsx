@@ -10,6 +10,7 @@ import About from './pages/About/About'
 import Login from './pages/Login/Login';
 import Search from './pages/Search/Search';
 import Favorites from './pages/Favorites/Favorites';
+import Register from './pages/Register/Register';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/favorites" component={Favorites}></Route>
           <Route exact path="/about" component={About}></Route>
           <Route exact path="/login" component={Login}></Route>
+          <Route exact path="/register" component={Register}></Route>
         </Switch>
       </div>
     </Router>
