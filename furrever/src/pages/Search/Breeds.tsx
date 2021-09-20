@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class Breeds extends Component {
 
   changeSelection(value) {
-    if(value === "None") {
+    if(value === 'None') {
       this.props.changeHandler(null);
     } else {
       // find the breed selected
@@ -21,14 +21,14 @@ class Breeds extends Component {
             (breed, i) => <option value={breed.name} key={i}>{breed.name}</option>
           );
     return (
-      <div className="country_selector">
+      <div className='breed_selector'>
         <form>
-          <label htmlFor="breed">Select a breed:</label>
+          <label htmlFor='breed'>Select a breed:</label>
           <select
-            id="breed"
-            name="breed"
+            id='breed'
+            name='breed'
             onChange={e => this.changeSelection(e.target.value)}>
-            <option value="None">Select one...</option>
+            <option value='None'>Select one...</option>
             {options}
           </select>
         </form>

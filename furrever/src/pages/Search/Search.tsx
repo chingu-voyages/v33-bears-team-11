@@ -10,7 +10,7 @@ class Search extends React.Component{
 		this.state = {
             selected: null,  
             animals:[],
-            breed: '',
+            breed: [],
 		};
 	  }
     componentDidMount() {
@@ -46,16 +46,51 @@ class Search extends React.Component{
             this.setState({
                 animals: data.animals
             })
+            // breed api call
+            fetch('https://api.petfinder.com/v2/oauth2/token', {
+                method: 'POST',
+                body: 'grant_type=client_credentials&client_id=' + key + '&client_secret=' + secret,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            }).then((res) => {
+                console.log('res',res);
+                return res.json();
+            }).then((data) => {
+                console.log('token',data);
+                return fetch('https://api.petfinder.com/v2/types/Dog/breeds',{
+                headers: {
+                    'Authorization': data.token_type + ' ' + data.access_token,
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            }).then((res) => {
+                return res.json();
+                
+            }).then((data) => {
+                console.log('breeds', data);
+                
+                this.setState({
+                    breed: data.breeds
+                })
+            })
+                
+          
         }).catch((err) => {
             console.log('err',err)
             console.log('something went wrong');
         })
         
     }
+    setSelected(selected){
+        this.setState({
+            selected
+        });
+    }
     render(){
-        // let breeds = this.state.selected
-        //     ? <Breeds breeds={this.state.selected.name}/>
-        //     : <div className="breed__placeholder">Select a breed above</div>;
+        let breeds = this.state.selected
+            ? <Breeds breeds={this.state.selected.breed}/>
+            : <div className="breed__placeholder">Select a breed above</div>;
         return (
             <div className='searchPage'>
                 <section className='imageButtons'>
@@ -64,10 +99,20 @@ class Search extends React.Component{
                     <img className='otherThumb' src={require('../../images/hamsterbutton.jpg')} alt='otherThumb'/>
                 </section>
                 <div className='filters'>
-                {/* <div>
-                    <Breeds breeds={this.state.breeds}/>
+                <div>
+                    <Breeds 
+                        breeds={this.state.breed}
+                        changeHandler={selected => this.setSelected(selected)}/>
                     {breeds}
-                </div> */}
+                </div>
+                <section className='filterType'>
+                    <label>Type</label>
+                        <select className='types'>
+                            <option value='young'>Dog</option>
+                            <option value='adult'>Cat</option>
+                            <option value='senior'>Other</option>
+                        </select>
+                </section>  
                 <section className='filterAge'>
                     <label>Age</label>
                         <select className='ages'>
