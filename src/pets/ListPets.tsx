@@ -1,5 +1,21 @@
-import React from 'react';
+//@ts-nocheck
+import React, { Component } from 'react';
+import { createImportSpecifier } from 'typescript';
+import PetCard from './PetCard';
 
-export default function ListPets() {
-	return <div>Hello</div>;
+class ListPets extends React.Component {
+	render() {
+        const pets = this
+            .props.animals.map((pet, i) => 
+            <PetCard {...pet} key={i} />)
+
+            return(
+                <div>{pets}</div>
+            )
+    }
 }
+
+ListPets.defaultProps = {
+    animals: []
+}
+export default ListPets;
