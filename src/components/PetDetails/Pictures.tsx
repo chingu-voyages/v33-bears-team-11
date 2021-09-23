@@ -15,6 +15,12 @@ function Pictures({name, photos, primary}) {
         })
     }
 
+    const displayPhotos = () => {
+        return images.map(image => {
+            return <img style={{height:"100px", width: "100px"}}src={`${image}`}/>
+        })
+    }
+
     return (
         <div>
             {getPhotos()}
@@ -22,9 +28,7 @@ function Pictures({name, photos, primary}) {
             {name}
             
             <img src={`${primary.medium}`}/>
-            {images.map(image => {
-                return <img style={{height:"100px", width: "100px"}}src={`${image}`}/>
-            })}
+            {displayPhotos()}
             {console.log(photos)}
         </div>
     )
