@@ -2,7 +2,8 @@
 import React, { Component } from 'react';
 import ListPets from '../../pets/ListPets';
 import Breeds from './Breeds';
-
+import './Search.css';
+import Type from './Type';
 
 class Search extends React.Component{
     constructor(props) {
@@ -93,11 +94,7 @@ class Search extends React.Component{
             : <div className="breed__placeholder">Select a breed above</div>;
         return (
             <div className='searchPage'>
-                <section className='imageButtons'>
-                    <img className='dogThumb' src={require('../../images/dogbutton.jpg')} alt='dogThumb'/>
-                    <img className='catThumb' src={require('../../images/catbutton.jpg')} alt='catThumb'/>
-                    <img className='otherThumb' src={require('../../images/hamsterbutton.jpg')} alt='otherThumb'/>
-                </section>
+                <Type/>
                 <div className='filters'>
                 <div>
                     <Breeds 

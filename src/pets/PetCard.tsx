@@ -1,6 +1,7 @@
 //@ts-nocheck
 import { timeStamp } from 'console';
 import React from 'react';
+import './PetCard.css';
 
 class PetCard extends React.Component {
 	render(){
@@ -13,6 +14,9 @@ class PetCard extends React.Component {
 						return <img src={element.medium} key={index}/>
 					})}</div>
 					</li>
+					<button className='likeBtn'>
+						<i className="fas fa-heart fa-lg" style={{ color: "grey" }}></i>
+					</button>
 				</ul>
 			</div>
 		);

@@ -1,0 +1,51 @@
+.box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+    background: #0057e3;
+  }
+  
+  .overlay {
+    z-index: 9;
+    margin: 30px;
+    background: grey;
+  }
+
+.types{
+    display: flex;
+    flex-direction: row;
+}
+.btnselection{
+    color: white;
+    font-size: 30px;
+}
+.dogThumb{
+    background-image: url('../../images/dog.jpg');
+    background-size:100%;
+    max-width: 200px;
+    max-height:200px;
+}
+
+.catThumb{
+    background-image: url('../../images/cat.jpg');
+    background-size:100%;
+    max-width: 200px;
+    max-height:200px;
+}
+.bunnyThumb{
+    background-image: url('../../images/bunny.jpg');
+    background-size:100%;
+    max-width: 200px;
+    max-height:200px;
+}
+
+.dogThumb, .catThumb,.bunnyThumb{
+    width: 200px;
+    height: 200px;
+    padding: 80px;
+    margin: 30px;
+}
+
