@@ -9,6 +9,7 @@ class Breeds extends Component {
     } else {
       // find the breed selected
       const breed = this.props.breeds.find(breed => breed.name === value);
+      console.log('breed selected',breed)
       this.props.changeHandler(breed);
     }
   }
