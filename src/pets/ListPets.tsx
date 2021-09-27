@@ -7,7 +7,9 @@ class ListPets extends React.Component {
 	render() {
         const pets = this
             .props.animals.map((pet, i) => 
-            <PetCard {...pet} key={i} />)
+            <PetCard {...pet} key={i} 
+                              onClick={(e) => this.props.onClick(e)}
+            />)
 
             return(
                 <div>{pets}</div>

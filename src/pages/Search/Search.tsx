@@ -126,6 +126,10 @@ class Search extends React.Component{
         })
     }
 
+    favoriteToggle = (e) => {
+        let fave = e.currentTarget;
+    }
+
     //populate breeds dropdown after choosing types
     updateType = type => {
         console.log('inside update type',type);
@@ -255,7 +259,9 @@ class Search extends React.Component{
                         value='submit'
                         onClick = {e => this.handleClick(e)}
                     ></input>
-                    <ListPets animals={this.state.animals} />
+                    <ListPets animals={this.state.animals} 
+                              onClick={ e => this.favoriteToggle(e)}
+                            />
                     </div>
 
                 </form>

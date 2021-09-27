@@ -15,7 +15,9 @@ class PetCard extends React.Component {
 					})}</div>
 					</li>
 					<button className='likeBtn'>
-						<i className="fas fa-heart fa-lg" style={{ color: "grey" }}></i>
+						<i className="fas fa-heart fa-lg" style={{ color: "grey" }}
+							onClick= {e => this.props.onClick(e)}
+						></i>
 					</button>
 				</ul>
 			</div>
