@@ -17,6 +17,7 @@ class Search extends React.Component{
             age:'Young',
             size:'Small',
             gender: 'Female',
+            result: []
 		};
 	  }
     handleClick = (e) => {
@@ -31,6 +32,7 @@ class Search extends React.Component{
         let age = this.state.age;
         let size = this.state.size;
         let gender = this.state.gender;
+        let selected = this.state.selected;
         
         //need to generate token
         fetch('https://api.petfinder.com/v2/oauth2/token', {
@@ -72,15 +74,14 @@ class Search extends React.Component{
             }).then((data) => {
                 console.log('token',data);
                 
-                console.log('wow', type)
                 let baseUrl = 'https://api.petfinder.com/v2/types/'
-                let breeds = '/breeds'
-                let breedsUrl = baseUrl + type + breeds;
-                return fetch(breedsUrl,{
-                headers: {
-                    'Authorization': data.token_type + ' ' + data.access_token,
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
+                let breedsUrl = baseUrl + type + '&breed=' + selected;
+                let fullUrl = breedsUrl + '&gender=' + gender + '&size=' + size + '&age=' + age
+                return fetch(fullUrl, {
+                    headers: {
+                        'Authorization': data.token_type + ' ' + data.access_token,
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
             })
             }).then((res) => {
                 return res.json();
@@ -89,7 +90,7 @@ class Search extends React.Component{
                 console.log('breeds', data);
                 
                 this.setState({
-                    breed: data.breeds
+                    results: data
                 })
             })
                 
@@ -176,12 +177,14 @@ class Search extends React.Component{
             }).then((data) => {
                 console.log('token',data);
                 
+                // return fetch('https://api.petfinder.com/v2/animals?&status=' + status,
+
                 let type = this.state.type;
                 console.log('wow2', type)
                 let baseUrl = 'https://api.petfinder.com/v2/types/'
                 let breeds = '/breeds'
                 let breedsUrl = baseUrl + type + breeds;
-                return fetch(breedsUrl,{
+                return fetch(breedsUrl ,{
                 headers: {
                     'Authorization': data.token_type + ' ' + data.access_token,
                     'Content-Type': 'application/x-www-form-urlencoded'
