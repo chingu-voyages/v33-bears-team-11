@@ -12,6 +12,9 @@ class Breeds extends Component {
       this.props.changeHandler(breed);
     }
   }
+  updateBreed = (e) => {
+    this.props.updateBreed(e.target.value);
+  }
 
   render() {
     const options = this

@@ -6,6 +6,8 @@
     left: 0;
     opacity: 0.9;
     background: #0057e3;
+    display: flex;
+    flex-direction:row;
   }
   
   .overlay {
@@ -13,7 +15,10 @@
     margin: 30px;
     background: grey;
   }
-
+.formselection{
+    color:white;
+    font-size: 25px;
+}
 .types{
     display: flex;
     flex-direction: row;
@@ -47,5 +52,6 @@
     height: 200px;
     padding: 80px;
     margin: 30px;
+    cursor: pointer;
 }
 

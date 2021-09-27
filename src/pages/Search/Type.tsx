@@ -11,23 +11,40 @@ class Type extends Component {
             show: true
         }
     }
-    handleshow = () => {
+
+    updateType = (e) => {
+        console.log('ho')
+        console.log('e',e.target.value)
+        this.props.updateType(e.target.value);
         this.setState({show: !this.state.show})
     }
     render(){
         const { show } = this.state; 
         return (
             <div>
-                {show && <form className='box overlay' onSubmit={this.handleshow}>                 
-                   <button className='typebtn dogThumb'>
-                        <p className='btnselection'>Dogs</p>
-                    </button>
-                    <button className='typebtn catThumb'>
-                        <p className='btnselection'>Cats</p>
-                    </button>
-                    <button className='typebtn bunnyThumb'>
-                        <p className='btnselection'>Other</p>
-                    </button>
+                {show && 
+                <form className='box overlay'>
+                    <label>Dog</label>
+                    <button
+                        type='button'
+                        className='typebtn dogThumb'
+                        onClick={(e) => this.updateType(e)}
+                        value='dog'>
+                    </button> 
+                    <label>Cat</label>   
+                    <button
+                        type='button'
+                        className='typebtn catThumb'
+                        onClick={(e) => this.updateType(e)}
+                        value='cat'>
+                    </button> 
+                    <label>Other</label>   
+                    <button
+                        type='button'
+                        className='typebtn bunnyThumb'
+                        onClick={(e) => this.updateType(e)}
+                        value='other'>
+                    </button>            
                 </form>}
             </div>
         )
