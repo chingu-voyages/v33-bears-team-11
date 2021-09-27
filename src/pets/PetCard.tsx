@@ -14,10 +14,8 @@ class PetCard extends React.Component {
 						return <img src={element.medium} key={index}/>
 					})}</div>
 					</li>
-					<button className='likeBtn'>
-						<i className="fas fa-heart fa-lg" style={{ color: "grey" }}
-							onClick= {e => this.props.onClick(e)}
-						></i>
+					<button type="button" className='likeBtn'>
+						<i className="fas fa-heart fa-lg" style={{ color: "grey" }}></i>
 					</button>
 				</ul>
 			</div>
