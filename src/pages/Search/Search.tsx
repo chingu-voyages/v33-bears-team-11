@@ -73,8 +73,8 @@ class Search extends React.Component{
             }).then((data) => {
                 console.log('token',data);
                 
-                let baseUrl = 'https://api.petfinder.com/v2/types/'
-                let breedsUrl = baseUrl + type + '?breed=' + selected;
+                let baseUrl = 'https://api.petfinder.com/v2/animals/?type='
+                let breedsUrl = baseUrl + type + '&breed=' + selected;
                 let fullUrl = breedsUrl + '&gender=' + gender + '&size=' + size + '&age=' + age
                 return fetch(fullUrl, {
                     headers: {
@@ -89,7 +89,7 @@ class Search extends React.Component{
                 console.log('breeds2', data);
                 
                 this.setState({
-                    selected: data.type
+                   animals: data.animals
                 })
                 console.log('filter',this.state.selected)
             })

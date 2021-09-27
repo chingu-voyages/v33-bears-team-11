@@ -13,7 +13,6 @@ class Type extends Component {
     }
 
     updateType = (e) => {
-        console.log('ho')
         console.log('e',e.target.value)
         this.props.updateType(e.target.value);
         this.setState({show: !this.state.show})
@@ -38,12 +37,12 @@ class Type extends Component {
                         onClick={(e) => this.updateType(e)}
                         value='cat'>
                     </button> 
-                    <label>Other</label>   
+                    <label>Rabbit</label>   
                     <button
                         type='button'
                         className='typebtn bunnyThumb'
                         onClick={(e) => this.updateType(e)}
-                        value='other'>
+                        value='rabbit'>
                     </button>            
                 </form>}
             </div>
