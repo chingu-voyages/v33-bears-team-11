@@ -17,7 +17,6 @@ class Search extends React.Component{
             age:'Young',
             size:'Small',
             gender: 'Female',
-            result: []
 		};
 	  }
     handleClick = (e) => {
@@ -57,7 +56,7 @@ class Search extends React.Component{
         }).then((res) => {
             return res.json();
         }).then((data) => {
-             console.log('pets', data);
+             console.log('pets2', data);
             this.setState({
                 animals: data.animals
             })
@@ -69,13 +68,13 @@ class Search extends React.Component{
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
             }).then((res) => {
-                console.log('res',res);
+                console.log('res2',res);
                 return res.json();
             }).then((data) => {
                 console.log('token',data);
                 
                 let baseUrl = 'https://api.petfinder.com/v2/types/'
-                let breedsUrl = baseUrl + type + '&breed=' + selected;
+                let breedsUrl = baseUrl + type + '?breed=' + selected;
                 let fullUrl = breedsUrl + '&gender=' + gender + '&size=' + size + '&age=' + age
                 return fetch(fullUrl, {
                     headers: {
@@ -87,11 +86,12 @@ class Search extends React.Component{
                 return res.json();
                 
             }).then((data) => {
-                console.log('breeds', data);
+                console.log('breeds2', data);
                 
                 this.setState({
-                    results: data
+                    selected: data.type
                 })
+                console.log('filter',this.state.selected)
             })
                 
           
@@ -116,13 +116,13 @@ class Search extends React.Component{
     updateSize = (size) => {
         console.log('size',size);
         this.setState({
-            size: size
+            size
         })
     }
     updateGender = (gender) => {
         console.log('gender',gender)
         this.setState({
-            gender: gender
+            gender
         })
     }
 
@@ -177,8 +177,6 @@ class Search extends React.Component{
             }).then((data) => {
                 console.log('token',data);
                 
-                // return fetch('https://api.petfinder.com/v2/animals?&status=' + status,
-
                 let type = this.state.type;
                 console.log('wow2', type)
                 let baseUrl = 'https://api.petfinder.com/v2/types/'
@@ -227,9 +225,9 @@ class Search extends React.Component{
                             <select className='ages'
                                     value={this.state.age}
                                     onChange={ (e) => {this.updateAge(e.target.value)}}>
-                                <option value='young'>Young</option>
-                                <option value='adult'>Adult</option>
-                                <option value='senior'>Senior</option>
+                                <option value='young'>young</option>
+                                <option value='adult'>adult</option>
+                                <option value='senior'>senior</option>
                             </select>
                     </section>     
                     <section className='filterSize'>
@@ -238,9 +236,9 @@ class Search extends React.Component{
                                     value={this.state.size}
                                     onChange = { (e) => {this.updateSize(e.target.value)}}
                                 >
-                                <option value='small'>Small</option>
-                                <option value='medium'>Medium</option>
-                                <option value='large'>Large</option>
+                                <option value='small'>small</option>
+                                <option value='medium'>medium</option>
+                                <option value='large'>large</option>
                             </select>
                     </section>
                     <section className='filterGender'>
@@ -248,8 +246,8 @@ class Search extends React.Component{
                             <select className='genders'
                                     value={this.state.gender}
                                     onChange={ (e) => {this.updateGender(e.target.value)}}>
-                                <option value='female'>Female</option>
-                                <option value='male'>Male</option>
+                                <option value='female'>female</option>
+                                <option value='male'>male</option>
                             </select>
                     </section>
                     <input
